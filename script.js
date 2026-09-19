@@ -96,6 +96,28 @@ function updateGame() {
     drawGame();
 }
 
+// Draw everything
+function drawGame() {
+    // Background
+    ctx.fillStyle = "#1f2937";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw grid
+    drawGrid();
+
+    // Draw snake
+    snake.forEach((segment, index) => {
+        ctx.fillStyle = index === 0 ? "#4ade80" : "#22c55e";
+
+        ctx.fillRect(
+            segment.x * gridSize + 1,
+            segment.y * gridSize + 1,
+            gridSize - 2,
+            gridSize - 2
+        );
+    });
+
+
 
 
 
