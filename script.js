@@ -151,6 +151,22 @@ function drawGrid() {
     }
 }
 
+// Create food
+function createFood() {
+    let validPosition = false;
+
+    while (!validPosition) {
+        food = {
+            x: Math.floor(Math.random() * tileCount),
+            y: Math.floor(Math.random() * tileCount)
+        };
+
+        validPosition = !snake.some(
+            segment => segment.x === food.x && segment.y === food.y
+        );
+    }
+}
+
 
 
 
