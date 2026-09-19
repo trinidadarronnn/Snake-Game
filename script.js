@@ -68,3 +68,21 @@ function updateGame() {
         return;
     }
 
+       // Check self collision
+    if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
+        endGame();
+        return;
+    }
+
+    snake.unshift(head);
+
+    // Check if food was eaten
+    if (head.x === food.x && head.y === food.y) {
+        score++;
+        scoreElement.textContent = score;
+
+        createFood();
+
+
+
+
