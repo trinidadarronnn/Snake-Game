@@ -100,5 +100,50 @@ button {
     color: #9ca3af;
 }
 
+.mobile-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.middle-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.control-btn {
+    width: 55px;
+    height: 55px;
+    background: #374151;
+    color: white;
+    border-radius: 8px;
+    font-size: 22px;
+}
+
+.control-btn:hover {
+    background: #4b5563;
+}
+
+.control-btn:active {
+    background: #22c55e;
+}
+
+@media (max-width: 450px) {
+    .game-container {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .control-btn {
+        width: 50px;
+        height: 50px;
+    }
+}
+
 
 
