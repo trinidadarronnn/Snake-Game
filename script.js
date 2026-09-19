@@ -83,6 +83,21 @@ function updateGame() {
 
         createFood();
 
+         // Make the game faster
+        if (speed > 50) {
+            speed -= 5;
+            clearInterval(gameLoop);
+            gameLoop = setInterval(updateGame, speed);
+        }
+    } else {
+        snake.pop();
+    }
+
+    drawGame();
+}
+
+
+
 
 
 
