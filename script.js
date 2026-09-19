@@ -167,6 +167,71 @@ function createFood() {
     }
 }
 
+// Change direction
+function changeDirection(newDirection) {
+    if (!gameRunning) return;
+
+    // Prevent the snake from going directly backwards
+    if (
+        newDirection.x === -direction.x &&
+        newDirection.y === -direction.y
+    ) {
+        return;
+    }
+
+    nextDirection = newDirection;
+}
+
+// Keyboard controls
+document.addEventListener("keydown", event => {
+    const key = event.key.toLowerCase();
+
+    if (key === "arrowup" || key === "w") {
+        event.preventDefault();
+        changeDirection({ x: 0, y: -1 });
+    }
+
+    if (key === "arrowdown" || key === "s") {
+        event.preventDefault();
+        changeDirection({ x: 0, y: 1 });
+    }
+
+    if (key === "arrowleft" || key === "a") {
+        event.preventDefault();
+        changeDirection({ x: -1, y: 0 });
+    }
+
+    if (key === "arrowright" || key === "d") {
+        event.preventDefault();
+        changeDirection({ x: 1, y: 0 });
+    }
+});
+
+// Mobile controls
+document.querySelectorAll(".control-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        const directionName = button.dataset.direction;
+
+        if (directionName === "up") {
+            changeDirection({ x: 0, y: -1 });
+        }
+
+        if (directionName === "down") {
+            changeDirection({ x: 0, y: 1 });
+        }
+
+        if (directionName === "left") {
+            changeDirection({ x: -1, y: 0 });
+        }
+
+        if (directionName === "right") {
+            changeDirection({ x: 1, y: 0 });
+        }
+    });
+});
+
+
+
 
 
 
