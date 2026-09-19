@@ -117,6 +117,42 @@ function drawGame() {
         );
     });
 
+     // Draw food
+    ctx.fillStyle = "#ef4444";
+
+    ctx.beginPath();
+    ctx.arc(
+        food.x * gridSize + gridSize / 2,
+        food.y * gridSize + gridSize / 2,
+        gridSize / 2 - 2,
+        0,
+        Math.PI * 2
+    );
+    ctx.fill();
+}
+
+// Draw grid
+function drawGrid() {
+    ctx.strokeStyle = "#293548";
+    ctx.lineWidth = 1;
+
+    for (let x = 0; x <= canvas.width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+    }
+
+    for (let y = 0; y <= canvas.height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+    }
+}
+
+
+
 
 
 
