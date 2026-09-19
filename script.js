@@ -230,6 +230,27 @@ document.querySelectorAll(".control-btn").forEach(button => {
     });
 });
 
+// End game
+function endGame() {
+    gameRunning = false;
+
+    clearInterval(gameLoop);
+
+    finalScoreElement.textContent = score;
+    gameOverScreen.classList.remove("hidden");
+}
+
+// Start button
+startButton.addEventListener("click", () => {
+    startGame();
+    startButton.textContent = "Restart Game";
+});
+
+// Restart button
+restartButton.addEventListener("click", () => {
+    startGame();
+});
+
 
 
 
